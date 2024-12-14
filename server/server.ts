@@ -1,4 +1,4 @@
-import app from "./app"
+import app from "./src/app"
 import express from "express"
 
 const PORT = 3001
