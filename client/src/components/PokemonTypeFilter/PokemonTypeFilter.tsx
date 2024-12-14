@@ -6,13 +6,13 @@ interface PokemonTypeFilterProps {
     onTypeSelect: (types: string[]) => void;
 }
 
-// Define a type for all possible Pokémon types
+
 type PokemonType = 
     | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice' 
     | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' 
     | 'bug' | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel' | 'fairy';
 
-// Type the colors object with the PokemonType
+
 const typeColors: Record<PokemonType, string> = {
     normal: 'bg-gray-400 hover:bg-gray-500',
     fire: 'bg-red-500 hover:bg-red-600',

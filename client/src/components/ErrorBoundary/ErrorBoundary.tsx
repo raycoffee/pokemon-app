@@ -47,5 +47,4 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-// Also add a default export if you want to use it as the default import
 export default ErrorBoundary;

@@ -9,7 +9,7 @@ console.log('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
 
 const app = express();
 
-// Connect to MongoDB
+
 const connectDB = async () => {
   const mongoUri = process.env.MONGODB_URI;
   if (!mongoUri) {
@@ -25,10 +25,10 @@ const connectDB = async () => {
   }
 };
 
-// Initialize MongoDB connection
+
 connectDB();
 
-// CORS configuration
+
 const corsOptions = {
   origin: [
     'https://pokedex-eta-lake-67.vercel.app',

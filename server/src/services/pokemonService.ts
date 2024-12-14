@@ -29,7 +29,7 @@ export class PokemonService {
 
   async getPokemonList(limit: number = 151): Promise<Pokemon[]> {
     try {
-      // Check cache first
+     
       const cachedPokemon = await PokemonModel.find()
         .sort({ id: 1 })
         .limit(limit);
@@ -38,13 +38,11 @@ export class PokemonService {
         return cachedPokemon.map(pokemon => this.transformToPokemon(pokemon.toObject()));
       }
 
-      // If cache miss, fetch from PokeAPI
       const response = await axios.get(`${this.baseUrl}/pokemon?limit=${limit}`);
       const results = response.data.results;
       
       const pokemonDetails = await Promise.all(
         results.map(async (pokemon: any) => {
-          // Check if pokemon exists in cache
           const cachedPokemon = await PokemonModel.findOne({ name: pokemon.name });
           if (cachedPokemon && cachedPokemon.spriteBase64) {
             return this.transformToPokemon(cachedPokemon.toObject());
@@ -52,8 +50,7 @@ export class PokemonService {
 
           const detailResponse = await axios.get(pokemon.url);
           const data = detailResponse.data;
-          
-          // Download and convert sprite to base64
+
           const spriteBase64 = await this.downloadAndConvertToBase64(data.sprites.front_default);
           
           const pokemonData = {
@@ -70,7 +67,6 @@ export class PokemonService {
             }
           };
 
-          // Cache in MongoDB
           await PokemonModel.findOneAndUpdate(
             { id: pokemonData.id },
             pokemonData,

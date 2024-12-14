@@ -7,13 +7,13 @@ interface PokemonCardProps {
     sprite: string;
 }
 
-// Define a type for all possible Pokémon types
+
 type PokemonType = 
     | 'normal' | 'fire' | 'water' | 'electric' | 'grass' | 'ice' 
     | 'fighting' | 'poison' | 'ground' | 'flying' | 'psychic' 
     | 'bug' | 'rock' | 'ghost' | 'dragon' | 'dark' | 'steel' | 'fairy';
 
-// Type the colors object with the PokemonType
+
 const typeColors: Record<PokemonType, string> = {
     normal: 'bg-gray-400',
     fire: 'bg-red-500',
