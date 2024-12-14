@@ -100,23 +100,6 @@ Handles type-based filtering with an intuitive, colorful interface.
 - Added error boundaries for graceful error handling
 - Cached Pokemon data in MongoDB to reduce API calls
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
-## 📝 License
-
-This project is open source and available under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Data provided by [PokeAPI](https://pokeapi.co/)
-- Icons from [Heroicons](https://heroicons.com/)
-- Inspired by the Pokemon community
-
 ---
 
 Built with ❤️ by Ray

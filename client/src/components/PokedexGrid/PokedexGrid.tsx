@@ -36,6 +36,7 @@ const PokedexGrid: React.FC<PokedexGridProps> = ({ pokemonList, initialView = 'g
     });
 
     const sortedPokemon = [...filteredPokemon].sort((a, b) => {
+
         switch (sortOption) {
             case 'name':
                 return a.name.localeCompare(b.name);
