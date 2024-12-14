@@ -16,4 +16,12 @@ app.get("/", (req: Request, res: Response) => {
 // Pokemon routes
 app.use("/api", pokemonRoutes);
 
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+        console.log(`Server is running at port ${PORT}`);
+    });
+}
+
 export default app;
