@@ -32,7 +32,9 @@ connectDB();
 const corsOptions = {
   origin: [
     'https://pokedex-eta-lake-67.vercel.app',
-    'http://localhost:3000'
+    'http://localhost:3000',
+    "https://raypivot.site",
+    "https://api.raypivot.site"
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
