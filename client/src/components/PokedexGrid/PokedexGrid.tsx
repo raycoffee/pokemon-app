@@ -55,12 +55,22 @@ const PokedexGrid: React.FC<PokedexGridProps> = ({ pokemonList, initialView = 'g
     );
     return (
         <div className="min-h-screen px-4 py-8">
-            <div className="max-w-7xl mx-auto">
-                <h1 className="text-5xl font-bold text-center mb-12 
+        <div className="max-w-7xl mx-auto">
+            <div className="flex items-center justify-center gap-4 mb-12">
+                <h1 className="text-5xl font-bold text-center
                     bg-gradient-to-r from-blue-600 to-purple-600 
                     bg-clip-text text-transparent">
                     Pokédex
                 </h1>
+                <iframe 
+                    src="https://giphy.com/embed/Sd9XrDFZZ0Q0OXAdJM" 
+                    width="58" 
+                    height="58" 
+                    frameBorder="0" 
+                    className="pointer-events-none"
+                    allowFullScreen
+                />
+            </div>
     
                 <div className="bg-white/60 backdrop-blur-lg rounded-2xl 
                     shadow-xl p-6 mb-8 space-y-6">
