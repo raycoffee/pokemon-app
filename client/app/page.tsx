@@ -14,25 +14,32 @@ export default function Home() {
       if (state.pokemon.length === 0) {
         dispatch({ type: 'SET_LOADING', payload: true });
         try {
-          const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-          const endpoint = process.env.NEXT_PUBLIC_POKEMON_API_ENDPOINT;
+          const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.raypivot.site';
+          const endpoint = process.env.NEXT_PUBLIC_POKEMON_API_ENDPOINT || '/api/pokemon';
           const url = `${baseUrl}${endpoint}`;
           
-          const response = await fetch(url);
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            mode: 'cors'
+          });
           if (!response.ok) {
-            throw new Error('Failed to fetch Pokemon');
+            throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data = await response.json();
           dispatch({ type: 'SET_POKEMON', payload: data });
-        } catch (error) {
+        } catch (error: unknown) {
           console.error('Error fetching Pokemon:', error);
-          dispatch({ type: 'SET_ERROR', payload: 'Failed to load Pokemon data' });
+          const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+          dispatch({ type: 'SET_ERROR', payload: `Failed to load Pokemon data: ${errorMessage}` });
         } finally {
           dispatch({ type: 'SET_LOADING', payload: false });
         }
       }
     }
-
     fetchPokemon();
   }, [dispatch, state.pokemon.length]);
 
