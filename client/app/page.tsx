@@ -22,13 +22,20 @@ export default function Home() {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Origin': process.env.NEXT_PUBLIC_FRONTEND_URL || 'https://pokedex-eta-lake-67.vercel.app'
             },
-            mode: 'cors'
+            credentials: 'include', 
+            mode: 'cors',
+            cache: 'no-cache' 
           });
+
           if (!response.ok) {
+            const errorData = await response.text();
+            console.error('Response error:', errorData);
             throw new Error(`HTTP error! status: ${response.status}`);
           }
+
           const data = await response.json();
           dispatch({ type: 'SET_POKEMON', payload: data });
         } catch (error: unknown) {
