@@ -50,6 +50,7 @@ const PokemonTypeFilter: React.FC<PokemonTypeFilterProps> = ({
     return (
         <div className="flex flex-wrap gap-2">
             {availableTypes.map((type) => {
+
                 const isSelected = selectedTypes.includes(type);
                 const typeColor = typeColors[type.toLowerCase() as PokemonType] || 'bg-gray-400 hover:bg-gray-500';
                 

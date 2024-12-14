@@ -1,49 +1,40 @@
-# Pokémon Web Application
+# 🌟 Pokemon Explorer
 
-A modern, responsive Pokémon explorer built with Next.js, TypeScript, and Tailwind CSS. This application allows users to browse, search, and filter Pokémon with an intuitive user interface.
+A modern, interactive Pokemon web application built with React, Next.js, and TypeScript. Browse, search, and filter through Pokemon with a clean, responsive interface.
 
-## 🌟 Features
+[Live Demo](https://raypivot.site)
 
-### Core Functionality
-- Interactive Pokémon browsing with grid and list views
-- Advanced search functionality
-- Type-based filtering system
-- Responsive design for all devices
-- Real-time sorting (by name, ID, or type)
-- Pagination with configurable items per page
+## ✨ Features
 
-### Technical Features
-- Server-side rendering with Next.js
-- Type-safe development with TypeScript
-- Modular component architecture
-- Context-based state management
-- Lazy loading and code splitting
-- Error boundaries for graceful error handling
-- Loading skeletons for improved UX
+- **Interactive Pokemon Cards**: Beautiful, responsive cards displaying Pokemon info and stats
+- **Smart Search**: Real-time search functionality across Pokemon names and types
+- **Advanced Filtering**: Filter Pokemon by multiple types simultaneously
+- **Flexible Views**: Toggle between grid and list views
+- **Smooth Navigation**: Pagination for browsing large datasets
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-## 🛠 Technology Stack
+## 🛠️ Tech Stack
 
-### Frontend
-- React 18
-- Next.js 13
-- TypeScript 5
-- Tailwind CSS
-- React Context (State Management)
+- **Frontend**:
+  - React & Next.js
+  - TypeScript
+  - Tailwind CSS
+  - React Query (for data management)
 
-### Backend Integration
-- Node.js with Express
-- RESTful API architecture
-- PokéAPI integration
-- Axios for HTTP requests
+- **Backend**:
+  - Node.js & Express
+  - MongoDB (for caching Pokemon data)
+  - PokeAPI integration
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
-- Git
 
-### Installation
+- Node.js (v14 or higher)
+- npm or yarn
+- MongoDB (if running locally)
+
+### Local Development
 
 1. Clone the repository:
 ```bash
@@ -59,8 +50,9 @@ yarn install
 ```
 
 3. Set up environment variables:
-```bash
-cp .env.example .env.local
+Create a `.env` file in the root directory and add:
+```
+MONGODB_URI=your_mongodb_connection_string
 ```
 
 4. Start the development server:
@@ -70,155 +62,61 @@ npm run dev
 yarn dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit `http://localhost:3000` to see your app running!
 
-## 📁 Project Structure
+## 🏗️ Project Structure
 
 ```
-pokemon-web-app/
-├── app/
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── ErrorBoundary/
-│   ├── LoadingSkeleton/
-│   ├── PokedexGrid/
-│   ├── PokemonCard/
-│   └── PokemonTypeFilter/
-├── context/
-│   └── PokemonContext.tsx
-├── hooks/
-│   └── usePokemonData.ts
-├── services/
-│   └── pokemonService.ts
-├── types/
-│   └── pokemon.ts
-└── public/
+pokemon-app/
+├── src/
+│   ├── components/
+│   │   ├── PokemonCard/
+│   │   ├── PokedexGrid/
+│   │   └── PokemonTypeFilter/
+│   ├── services/
+│   │   └── pokemonService.ts
+│   ├── types/
+│   │   └── pokemon.ts
+│   └── app.ts
+├── public/
+└── package.json
 ```
 
-## 🎨 Component Architecture
+## 🌈 Core Components
 
 ### PokemonCard
-- Displays individual Pokémon information
-- Handles hover states and animations
-- Implements responsive design
+Displays individual Pokemon information in a sleek, responsive card format.
 
 ### PokedexGrid
-- Manages the main grid/list view
-- Handles pagination and sorting
-- Implements search functionality
+Manages the Pokemon list display with advanced features like search, sort, and view toggles.
 
 ### PokemonTypeFilter
-- Manages type-based filtering
-- Provides interactive type selection
-- Implements multi-select functionality
+Handles type-based filtering with an intuitive, colorful interface.
 
-## 🔧 Configuration
+## 🎨 Design Choices
 
-### Environment Variables
-```env
-NEXT_PUBLIC_API_URL=https://api-endpoint.com
-NEXT_PUBLIC_ITEMS_PER_PAGE=12
-```
-
-### Tailwind Configuration
-Custom configuration can be found in `tailwind.config.js`
-
-## 📱 Responsive Design
-
-The application is fully responsive with breakpoints:
-- Mobile: 0-640px
-- Tablet: 641-1024px
-- Desktop: 1025px+
-
-## ⚡ Performance Optimizations
-
-1. Image Optimization
-- Next.js Image component for automatic optimization
-- Lazy loading for off-screen images
-
-2. Code Splitting
-- Dynamic imports for route-based code splitting
-- Lazy loading for components
-
-3. State Management
-- Efficient context implementation
-- Memoization for expensive calculations
-
-## 🧪 Testing
-
-Run tests with:
-```bash
-npm test
-# or
-yarn test
-```
-
-### Test Coverage
-- Unit tests for components
-- Integration tests for API calls
-- E2E tests for critical user paths
-
-## 🚀 Deployment
-
-### Vercel Deployment
-1. Connect your GitHub repository to Vercel
-2. Configure environment variables
-3. Deploy with default settings
-
-### Manual Deployment
-```bash
-npm run build
-npm run start
-```
+- Used Tailwind CSS for consistent, responsive styling
+- Implemented loading skeletons for better UX
+- Added error boundaries for graceful error handling
+- Cached Pokemon data in MongoDB to reduce API calls
 
 ## 🤝 Contributing
 
+Contributions are welcome! Feel free to:
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+2. Create a feature branch
+3. Submit a pull request
 
-## 📄 License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👥 Author
-
-raycoffee - [@raycoffee](https://github.com/raycoffee)
+This project is open source and available under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- [PokéAPI](https://pokeapi.co/) for the Pokémon data
-- [Next.js](https://nextjs.org/) documentation
-- [Tailwind CSS](https://tailwindcss.com/) team
+- Data provided by [PokeAPI](https://pokeapi.co/)
+- Icons from [Heroicons](https://heroicons.com/)
+- Inspired by the Pokemon community
 
-## ⚠️ Known Issues & Future Improvements
+---
 
-### Known Issues
-- Type filtering performance with large datasets
-- Mobile search UX improvements needed
-
-### Planned Features
-- Advanced statistics view
-- Pokemon evolution chains
-- Team builder functionality
-- Favorite Pokemon system
-
-## 💡 Development Tips
-
-### Best Practices
-- Follow TypeScript strict mode
-- Implement proper error boundaries
-- Use semantic HTML
-- Follow accessibility guidelines
-
-### Common Issues
-- API rate limiting solutions
-- Error handling patterns
-- State management optimization
-
-## 🆘 Support
-
-For support, please open an issue in the repository.
+Built with ❤️ by Ray

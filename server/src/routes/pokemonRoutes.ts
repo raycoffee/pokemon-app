@@ -9,6 +9,7 @@ router.get('/pokemon', async (req, res) => {
     const limit = req.query.limit ? parseInt(req.query.limit as string) : 151;
     const pokemon = await pokemonService.getPokemonList(limit);
     res.json(pokemon);
+    
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch Pokemon' });
   }
