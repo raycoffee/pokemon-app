@@ -1,19 +1,28 @@
+// In your server's app.ts
 import express, { Request, Response } from "express";
 import cors from "cors";
 import pokemonRoutes from "./routes/pokemonRoutes";
 
 const app = express();
 
-// Middleware
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'https://pokedex-eta-lake-67.vercel.app', // Your client domain
+    'http://localhost:3000' // Local development
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
-// Your original route
+// Routes
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello!");
 });
 
-// Pokemon routes
 app.use("/api", pokemonRoutes);
 
 export default app;

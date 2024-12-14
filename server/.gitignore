@@ -30,3 +30,4 @@ coverage/
 # IDE files (VSCode, etc.)
 .vscode/
 .idea/
+.vercel

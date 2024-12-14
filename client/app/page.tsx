@@ -14,13 +14,18 @@ export default function Home() {
       if (state.pokemon.length === 0) {
         dispatch({ type: 'SET_LOADING', payload: true });
         try {
-          const response = await fetch('http://localhost:3001/api/pokemon');
+          const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+          const endpoint = process.env.NEXT_PUBLIC_POKEMON_API_ENDPOINT;
+          const url = `${baseUrl}${endpoint}`;
+          
+          const response = await fetch(url);
           if (!response.ok) {
             throw new Error('Failed to fetch Pokemon');
           }
           const data = await response.json();
           dispatch({ type: 'SET_POKEMON', payload: data });
         } catch (error) {
+          console.error('Error fetching Pokemon:', error);
           dispatch({ type: 'SET_ERROR', payload: 'Failed to load Pokemon data' });
         } finally {
           dispatch({ type: 'SET_LOADING', payload: false });
@@ -34,7 +39,7 @@ export default function Home() {
   return (
     <ErrorBoundary>
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center"></h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">Pokédex</h1>
         {state.error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {state.error}
